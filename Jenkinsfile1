@@ -19,11 +19,6 @@ pipeline {
         sh 'cat trufflehog'
       }
     }
-    stage ('SCA') {
-      steps{
-    dependencyCheck additionalArguments: '--format HTML --format XML', odcInstallation: 'Default'
-    }
-  }
     stage ('Build') {
       steps{
       sh 'mvn clean package'
